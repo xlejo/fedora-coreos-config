@@ -5,8 +5,6 @@
 packages:
   # Standard tools for configuring network/hostname
   - NetworkManager hostname
-  # Interactive Networking configuration during coreos-install
-  - NetworkManager-tui
   # Teaming https://github.com/coreos/fedora-coreos-config/pull/289 
   # and http://bugzilla.redhat.com/1758162
   - NetworkManager-team teamd
@@ -18,4 +16,4 @@ packages:
   # Firewall manipulation
   - iptables nftables
   # Interactive network tools for admins
-  - socat net-tools bind-utils
+  - socat net-tools

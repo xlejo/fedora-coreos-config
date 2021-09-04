@@ -55,7 +55,7 @@ postprocess:
   - |
     #!/usr/bin/env bash
     set -xeuo pipefail
-    for x in /etc/yum.repos.d/*modular.repo; do
+    for x in /etc/yum.repos.d/*.repo; do
       sed -i -e 's,enabled=[01],enabled=0,' ${x}
     done
 
@@ -139,8 +139,6 @@ packages:
   - libvarlink-util
   # Minimal NFS client
   - nfs-utils-coreos
-  # Active Directory support
-  - adcli
   # Additional firewall support; we aren't including these in RHCOS or they
   # don't exist in RHEL
   - iptables-nft iptables-services
@@ -153,11 +151,8 @@ packages:
   # for caching sudo rules by SSSD.
   # https://github.com/coreos/fedora-coreos-tracker/issues/445
   - libsss_sudo
-  # SSSD; we only ship a subset of the backends
-  - sssd-client sssd-ad sssd-ipa sssd-krb5 sssd-ldap
   # Used by admins interactively
   - attr
-  - openssl
   - lsof
   # Provides terminal tools like clear, reset, tput, and tset
   - ncurses
@@ -168,11 +163,6 @@ packages:
   - console-login-helper-messages-motdgen
   # i18n
   - kbd
-  # nvme-cli for managing nvme disks
-  - nvme-cli
-  # zram-generator (but not zram-generator-defaults) for F33 change
-  # https://github.com/coreos/fedora-coreos-tracker/issues/509
-  - zram-generator
 
 # This thing is crying out to be pulled into systemd, but that hasn't happened
 # yet.  Also we may want to add to rpm-ostree something like arch negation;
