@@ -18,4 +18,4 @@ packages:
   # Firewall manipulation
   - iptables nftables
   # Interactive network tools for admins
-  - socat net-tools bind-utils
+  - socat net-tools
